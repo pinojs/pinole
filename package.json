@@ -1,15 +1,28 @@
 {
   "name": "cherenkov",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["logging", "pino", "transports"],
+  "keywords": [
+    "logging",
+    "pino",
+    "transports"
+  ],
   "author": "David Mark Clements (@davidmarkclem)",
   "license": "MIT",
   "dependencies": {
     "sonic-boom": "^1.1.0"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pinojs/pinole.git"
+  },
+  "bugs": {
+    "url": "https://github.com/pinojs/pinole/issues"
+  },
+  "homepage": "https://github.com/pinojs/pinole#readme",
+  "description": ""
 }
