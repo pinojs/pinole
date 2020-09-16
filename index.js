@@ -16,7 +16,7 @@ if (isMainThread) {
   const SYNC = 1
 
 
-  class Cherenkov extends EventEmitter {
+  class Pinole extends EventEmitter {
     constructor (file, encoding = 'utf-8') {
       super()
       this.file = require.resolve(file)
@@ -37,7 +37,6 @@ if (isMainThread) {
       })
       this.worker.once('exit', (code) => {
         this.worker = null
-        console.log('caught exit, now you must flush in main thread, worker has died')
         this.flushSync()
         this.destroy()
       })
@@ -86,11 +85,11 @@ if (isMainThread) {
     }
   }
 
-  function cherenkov (file) {
-    return new Cherenkov(file)
+  function pinole (file) {
+    return new Pinole(file)
   }
 
-  module.exports = cherenkov
+  module.exports = pinole
 
 } else {
   const { shared, file } = workerData

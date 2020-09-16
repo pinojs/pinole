@@ -1,6 +1,6 @@
 'use strict'
 const SonicBoom = require('sonic-boom')
-const sonic = new SonicBoom(1)
+const sonic = new SonicBoom({fd: 1})
 module.exports = (data) => {
   sonic.write(data, 0 , true)
 }

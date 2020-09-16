@@ -1,6 +1,6 @@
-const cherenkov = require('.')
+const pinole = require('.')
 
-const stream = cherenkov('./default-processor')
+const stream = pinole('./default-processor')
 
 
 stream.write('hello :)')

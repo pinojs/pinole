@@ -6,10 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["logging", "pino", "transports"],
+  "author": "David Mark Clements (@davidmarkclem)",
   "license": "MIT",
   "dependencies": {
-    "sonic-boom": "^0.7.6"
+    "sonic-boom": "^1.1.0"
   }
 }
