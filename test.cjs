@@ -1,7 +1,7 @@
-import pinole from './index.js'
+'use strict'
+const pinole = require('./index.cjs')
 
 const transport = pinole('./lib/default-processor')
-
 transport.write('hello :)')
 transport.write('something else :D')
 
