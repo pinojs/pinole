@@ -2,6 +2,7 @@ import { isMainThread } from 'worker_threads'
 import main from './lib/main.cjs'
 
 export default main
+export const symbols = main.symbols
 
 if (isMainThread === false) {
   try {

@@ -8,7 +8,7 @@
     "require": "./index.cjs"
   },
   "scripts": {
-    "test": "node test.js"
+    "test": "node test/test.js"
   },
   "keywords": [
     "logging",
