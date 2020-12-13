@@ -4,6 +4,4 @@
 
 ## Status
 
-Experimental POC
-
-> Do not use.
+Experimental
