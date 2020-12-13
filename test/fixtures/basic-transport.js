@@ -8,4 +8,3 @@ export default (opts = {fd: 1}) => {
     sonic.write(data, 0, true)
   }
 }
-

@@ -21,7 +21,9 @@
     "get-caller-file": "^2.0.5",
     "sonic-boom": "^1.3.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "pino-colada": "^2.1.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/pinojs/pinole.git"
