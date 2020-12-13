@@ -1,6 +1,8 @@
 import pinole from './index.js'
 
-const transport = pinole('./lib/default-processor')
+const transport = pinole({
+  transport: './lib/default-processor'
+})
 
 transport.write('hello :)')
 transport.write('something else :D')
