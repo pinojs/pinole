@@ -1,10 +1,11 @@
 import SonicBoom from 'sonic-boom'
+import { promisify } from 'util'
+import { appendFile } from 'fs/promises'
+const timeout = promisify(setTimeout)
 
-export default (opts = { fd: 1 }) => {
-  if (!opts.dest && !opts.fd) opts.fd = 1
-  opts.sync = true
-  const sonic = new SonicBoom(opts)
-  return (data, sync) => {
-    sonic.write(data)
+export default (opts = {}) => {
+  return async (data, sync) => {
+
+    await appendFile(opts.dest, data)
   }
 }

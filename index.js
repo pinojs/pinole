@@ -10,7 +10,7 @@ if (isMainThread === false) {
     const poll = await worker()
     await poll()
   } catch (err) {
-    console.error(err)
+    process._rawDebug(err)
     process.exit(-1)
   }
 }
