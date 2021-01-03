@@ -5,7 +5,6 @@ const timeout = promisify(setTimeout)
 
 export default (opts = {}) => {
   return async (data, sync) => {
-
     await appendFile(opts.dest, data)
   }
 }

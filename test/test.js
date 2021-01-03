@@ -6,55 +6,25 @@ const dest = '/Users/davidclements/code/pinole/out'
 try { unlinkSync(dest) } catch {}
 
 const stream = pinole({ transport, dest })
+stream.unref()
 console.time('logging time')
 console.time('writes')
 
-const n = 10000 * 2 * 2 * 2 * 2
+
+
+//const n = 100000  // succceeds
+const n = 1000000 // fails
 
 let i = n
 while (i-- > 0) {
-// setTimeout(() => {
   stream.write(`{"level":30,"time":1609551416940,"msg":"hello world","pid":657,"hostname":"Davids-MBP-3.fritz.box"}\n`)
-  // }, 1)
-  // setTimeout(() => {
   stream.write(`{"level":30,"time":1609551416940,"msg":"hello child!","pid":657,"hostname":"Davids-MBP-3.fritz.box","a":"property"}\n`)
-// }, 2500)
 }
-console.log('hi', stream.cache.length)
+console.log('cache size', stream.cache.length)
 console.timeEnd('writes')
 
-stream.unref()
 
 
-// setTimeout(() => {
-  
-//   stream.write('{"level":30,"time":1531171082399,"msg":"hello child!","pid":657,"hostname":"Davids-MBP-3.fritz.box","a":"property"}\n')
-//   setTimeout(() => {
-//     console.log('POS', stream.pos)
-//     stream.write('{"level":30,"time":1531171082399,"msg":"hello child!","pid":657,"hostname":"Davids-MBP-3.fritz.box","a":"property"}\n')
-//     setTimeout(() => {
-//       console.log('POS2', stream.pos)
-//       let i = n
-//       while (i-- > 0) {
-//       // setTimeout(() => {
-//         stream.write('{"level":30,"time":1531171074631,"msg":"hello world","pid":657,"hostname":"Davids-MBP-3.fritz.box"}\n')
-//         // }, 1)
-//         // setTimeout(() => {
-//         stream.write('{"level":30,"time":1531171082399,"msg":"hello child!","pid":657,"hostname":"Davids-MBP-3.fritz.box","a":"property"}\n')
-//       // }, 2500)
-//       }
-//     }, 1000)
-//   }, 1000)
-  
-// }, 1000)
-
-// setTimeout(() => {
-
-// }, 1000000)
-
-// setTimeout(() => {
-//   console.log('cool', stream.cache)
-// }, 10000)
 
 process.on('exit', () => {
   console.time('sync flush')

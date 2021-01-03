@@ -1,0 +1,17 @@
+todo: 
+
+
+flushSync still might have a barrier sync problem with writes in between overwriting the buffer
+
+
+get async mode working in it's own right (no flush syncing)
+
+
+get async mode swithching to flushSync working
+
+get flushSync switching back to async working
+
+convert transports to async generator pattern (also: always yield wrapper generator idea)
+
+
+auto flushSync on Node 14 using the new exit api (is it a hook? ask matteo)
