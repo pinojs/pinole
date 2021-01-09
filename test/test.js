@@ -1,8 +1,11 @@
 import pinole from '../index.js'
+import os from 'os'
+import { join } from 'path'
 import { readFileSync, unlinkSync } from 'fs'
 import { strict as assert } from 'assert'
 const transport = './fixtures/basic-transport.js'
-const dest = '/Users/davidclements/code/pinole/out'
+const tmp = os.tmpdir()
+const dest = join(tmp, 'out')
 try { unlinkSync(dest) } catch {}
 
 const stream = pinole({ transport, dest })
