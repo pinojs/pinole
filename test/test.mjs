@@ -3,33 +3,33 @@ import os from 'os'
 import { join } from 'path'
 import { readFileSync, unlinkSync } from 'fs'
 import { strict as assert } from 'assert'
-const transport = './fixtures/basic-transport.js'
+const transport = './fixtures/basic-transport.mjs'
 const tmp = os.tmpdir()
 const dest = join(tmp, 'out')
 try { unlinkSync(dest) } catch {}
 
 const stream = pinole({ transport, dest })
-stream.unref()
+// stream.unref()
 console.time('logging time')
 console.time('writes')
 
 
 
-//const n = 100000  // succceeds
-const n = 1000000 // fails
+const n = 10000// succceeds
+// const n = 100000 // fails
 
 let i = n
 while (i-- > 0) {
   stream.write(`{"level":30,"time":1609551416940,"msg":"hello world","pid":657,"hostname":"Davids-MBP-3.fritz.box"}\n`)
   stream.write(`{"level":30,"time":1609551416940,"msg":"hello child!","pid":657,"hostname":"Davids-MBP-3.fritz.box","a":"property"}\n`)
 }
-console.log('cache size', stream.cache.length)
 console.timeEnd('writes')
-
+console.log(dest)
 
 
 
 process.on('exit', () => {
+  console.log('shit')
   console.time('sync flush')
   stream.flushSync()
   console.timeEnd('sync flush')
